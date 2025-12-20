@@ -4,7 +4,6 @@ import com.odtheking.odin.clickgui.settings.impl.HUDSetting
 import com.odtheking.odin.clickgui.settings.impl.KeybindSetting
 import com.odtheking.odin.events.core.EventBus
 import com.odtheking.odin.features.ModuleManager
-import com.odtheking.odin.features.Module
 import com.odtheking.odinaddon.commands.odinAddonCommand
 import com.odtheking.odinaddon.features.impl.skyblock.TestModule
 import net.fabricmc.api.ClientModInitializer
@@ -22,14 +21,12 @@ object OdinAddon : ClientModInitializer {
 
         // Register objects to event bus by adding to the list
         listOf(this).forEach { EventBus.subscribe(it) }
-
-        // Register modules by adding to the function
-        addModules(TestModule)
     }
 
     @JvmStatic
-    fun addModules(vararg modules: Module) {
-        modules.forEach { module ->
+    fun addModules() {
+        // Register modules by adding to the list
+        listOf(TestModule).forEach { module ->
             ModuleManager.modules.add(module)
 
             module.key?.let {
