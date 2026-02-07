@@ -4,6 +4,8 @@ import com.odtheking.odin.config.ModuleConfig
 import com.odtheking.odin.events.core.EventBus
 import com.odtheking.odin.features.ModuleManager
 import com.odtheking.odinaddon.commands.odinAddonCommand
+import com.odtheking.odinaddon.features.impl.render.Patcher
+import com.odtheking.odinaddon.features.impl.render.Trajectories
 import com.odtheking.odinaddon.features.impl.skyblock.TestModule
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback
@@ -22,6 +24,6 @@ object OdinAddon : ClientModInitializer {
         listOf(this).forEach { EventBus.subscribe(it) }
 
         // Register modules by adding to the list
-        ModuleManager.registerModules(ModuleConfig("OdinAddon.json"), TestModule)
+        ModuleManager.registerModules(ModuleConfig("OdinAddon.json"), Trajectories, Patcher)
     }
 }
