@@ -24,6 +24,6 @@ object OdinAddon : ClientModInitializer {
         listOf(this).forEach { EventBus.subscribe(it) }
 
         // Register modules by adding to the list
-        ModuleManager.registerModules(ModuleConfig("OdinAddon.json"), Trajectories, Patcher)
+        ModuleManager.registerModules(ModuleConfig("OdinAddon.json"),Patcher)
     }
 }
